@@ -19,27 +19,26 @@ body {
 
     & .flex_container {
         display: flex;
-        flex-shrink: 0;
         max-width: 928px;
-        height: 641px;
         border-radius: 36px;
         background-color: $color-White;
         box-shadow: 0px 15px 60px 0px $color-grey;
     }
 }
 
-
 .left {
     margin: 6rem 0 6rem 4rem;
 
     & h1 {
+        color: $color-Dark-Navy;
         font-size: 3.5rem;
         font-weight: 700;
         font-style: normal;
         line-height: 3.5rem;
     }
 
-    & p {
+    & .first_p {
+        color: $color-Dark-Navy;
         font-size: 1rem;
         margin: 1.5rem 0;
     }
@@ -55,64 +54,134 @@ ul {
     & li {
         display: flex;
         font-size: 1rem;
+        color: $color-Dark-Navy;
         gap: 0.625rem;
     }
 }
 
-#form {
-    .form_container {
+.form_container {
+    display: flex;
+    flex-direction: column;
+
+    & #messagesContainer {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .5rem;
 
-        & #errorContainer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        & label {
+            font-style: normal;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
 
-            & label {
-                font-style: normal;
-                font-size: 0.75rem;
+        & p {
+            color: $color-vermellion;
+            font-size: 0.75rem;
+        }
+    }
+
+    & #email {
+        width: 376px;
+        height: 56px;
+        outline: none;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        border: 2px solid $color-grey;
+        border-radius: 8px;
+        font-size: 1rem;
+
+        &:hover {
+            border: 1px solid $color-Dark-Navy;
+        }
+
+        &::placeholder {
+            font-weight: 400;
+            font-size: 1rem;
+            opacity: 0.5;
+            color: $color-Dark-Navy;
+        }
+
+    }
+
+    & #subscribeBtn {
+        width: 376px;
+        height: 56px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        color: $color-White;
+        background-color: $color-Dark-Slate-Grey;
+        cursor: pointer;
+
+        &:hover {
+            background: $color-btn-hover;
+            box-shadow: 0px 16px 32px 0px $color-btn-box-shadow;
+        }
+    }
+}
+
+.right {
+    width: 100%;
+    margin: 1.5rem 1.5rem 1.5rem 4rem;
+
+    & .desktop_image {
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    & .mobile_image {
+        display: none;
+    }
+}
+
+.second_screen {
+    width: 504px;
+    height: 520px;
+    border-radius: 36px;
+    box-shadow: 0px 15px 60px 0px $color-grey;
+    background-color: $color-White;
+
+    & .second_card {
+        margin: 3rem 4rem 4rem 4rem;
+
+        & img {
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin-bottom: 2.5rem;
+        }
+
+        & h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        & p {
+            color: $color-Dark-Navy;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+            margin-bottom: 2.5rem;
+
+            & span {
                 font-weight: 700;
             }
-
-            & p {
-                color: $color-vermellion;
-                font-size: 0.75rem;
-            }
         }
 
-        & #email {
-            width: 376px;
-            height: 56px;
-            outline: none;
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border: 2px solid $color-grey;
-            border-radius: 8px;
-            font-size: 1rem;
-
-
-            &:hover {
-                border: 1px solid $color-Dark-Navy;
-            }
-
-            &::placeholder {
-                font-weight: 400;
-                font-size: 1rem;
-                opacity: 0.5;
-                color: $color-Dark-Navy;
-            }
-
-        }
-
-        & #subscribeBtn {
+        & #dismissBtn {
+            background: $color-Dark-Navy;
+            color: $color-White;
             width: 376px;
             height: 56px;
             font-size: 1rem;
+            font-weight: 700;
             border-radius: 8px;
             border: none;
-            color: $color-White;
-            background-color: $color-Dark-Slate-Grey;
             cursor: pointer;
 
             &:hover {
@@ -123,16 +192,104 @@ ul {
     }
 }
 
-.right {
-    margin: 1.5rem 1.5rem 1.5rem 4rem;
+.hidden {
+    display: none;
+}
 
-    &_image {
-        display: block;
-        width: 400px;
-        height: 593px;
+@media (max-width: 940px) {
+    .main_container {
+        & .flex_container {
+            max-width: 768px;
+        }
+    }
+
+    .right {
+        margin: 0 1rem 0 2rem;
+
+        & .desktop_image {
+            height: 100%;
+            object-fit: contain;
+        }
     }
 }
 
-.second_screen {
-    display: none;
+@media (max-width: 768px) {
+    body {
+        background-color: $color-White;
+    }
+
+    .main_container {
+        .flex_container {
+            max-width: 375px;
+            flex-direction: column-reverse;
+            border-radius: 0;
+            box-shadow: none;
+
+            & .left {
+                margin: 2.5rem 1.2rem 0rem 1.5rem;
+
+                & h1 {
+                    font-size: 2.5rem;
+                }
+
+                .form_container {
+                    & .input_container {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                    }
+
+                    & #email {
+                        width: 327px;
+                    }
+
+                    & #subscribeBtn {
+                        width: 327px;
+                    }
+                }
+            }
+        }
+    }
+
+    .right {
+        margin: 0;
+
+        & .desktop_image {
+            display: none;
+        }
+
+        & .mobile_image {
+            display: block;
+            border-radius: 0 0 16px 16px;
+        }
+    }
+
+    .second_screen {
+        width: 375px;
+        box-shadow: none;
+
+
+        & .second_card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin: 0;
+            padding: 9.3rem 1.5rem 2.5rem 1.5rem;
+
+            & h1 {
+                font-size: 2.5rem;
+            }
+
+            & p {
+                margin-bottom: 18.3rem;
+            }
+
+            & #dismissBtn {
+                width: 327px;
+            }
+        }
+
+    }
 }

@@ -21,9 +21,10 @@
 
         <section class="left">
           <h1>Stay updated!</h1>
-          <p>
+          <p class="first_p">
             Join 60,000+ product managers receiving monthly updates on:
           </p>
+
           <ul>
             <li>
               <img src="/images/icon-list.svg" alt="list-icon">Product discovery and building what matters
@@ -35,30 +36,36 @@
               <img src="/images/icon-list.svg" alt="list-icon">And much more!
             </li>
           </ul>
+
           <form id="form" action="">
             <div class="form_container">
-              <div id="errorContainer">
+              <div id="messagesContainer">
                 <label for="email">Email address</label>
               </div>
-              <input id="email" type="text" name="email" placeholder="email@company.com">
-              <button id="subscribeBtn" type="submit">Subscribe to monthly newsletter</button>
+              <div class="input_container">
+                <input id="email" type="text" name="email" placeholder="email@company.com">
+                <button id="subscribeBtn" type="submit">Subscribe to monthly newsletter</button>
+              </div>
             </div>
           </form>
         </section>
 
         <picture class="right">
-          <img class="right_image" src="/images/illustration-sign-up-desktop.svg" alt="image">
+          <img class="desktop_image" src="/images/illustration-sign-up-desktop.svg" alt="image">
+          <img class="mobile_image" src="/images/illustration-sign-up-mobile.svg" alt="image">
         </picture>
       </div>
 
-      <section class="second_screen">
-        <img src="/images/icon-list.svg" alt="list-icon">
-        <h1>Thanks for subscribing!</h1>
-        <p>
-          A confirmation email has been sent to ash@loremcompany.com.
-          Please open it and click the button inside to confirm your subscription.
-        </p>
-        <button id="dismissMsg">Dismiss message</button>
+      <section class="second_screen hidden">
+        <div class="second_card">
+          <img src="/images/icon-list.svg" alt="list-icon">
+          <h1>Thanks for subscribing!</h1>
+          <p>
+            A confirmation email has been sent to <span>ash@loremcompany.com.</span>
+            Please open it and click the button inside to confirm your subscription.
+          </p>
+            <button id="dismissBtn">Dismiss message</button>
+        </div>
       </section>
 
     </main>
